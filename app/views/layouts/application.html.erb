@@ -1,13 +1,19 @@
 <!DOCTYPE HTML>
 <html>
   <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
     <title><%= title %></title>
     <%= csrf_meta_tag %>
-    <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
-    <%= stylesheet_link_tag 'blueprint/print',  :media => 'print'  %>
+    <%= render :partial => 'layouts/stylesheets' %>
   </head>
-  <body id="">
-    <%= yield %>
+  <body>
+    <div class="container">
+      <%= render :partial => 'layouts/header' %>
+        <section class="round">
+        <%= yield %>
+        </section>
+     <%= render :partial => 'layouts/footer' %>
+    </div>
   </body>
 </html>
 
