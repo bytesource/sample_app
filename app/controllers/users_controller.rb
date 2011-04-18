@@ -7,11 +7,14 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+      sign_in @user
       flash[:success] = "Welcome to the Sample App!"
       # Shortcut for user_path(@user) -- as seen before inside link_to
       redirect_to @user
     else
       @title = "Sign up"
+      @user.password = ""
+      @user.password_confirmation = ""
       render 'new'
     end
   end

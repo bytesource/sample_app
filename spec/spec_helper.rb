@@ -6,6 +6,10 @@ Spork.prefork do
   # if you change any configuration or code from libraries loaded here, you'll
   # need to restart spork for it take effect.
 
+  def test_sign_in(user)
+    controller.sign_in(user)
+  end
+
 end
 
 Spork.each_run do
@@ -26,6 +30,7 @@ end
 # need to load files that tend to change during development, require them here.
 # With Rails, your application modules are loaded automatically, so sometimes
 # this block can remain empty.
+#
 #
 # Note: You can modify files loaded *from* the Spork.each_run block without
 # restarting the spork server.  However, this file itself will not be reloaded,
