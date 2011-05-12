@@ -12,7 +12,9 @@ class SessionsController < ApplicationController
       render('new')
     else
       sign_in user
-      redirect_to user
+      # session[:return_to] will contain an URL (set in the body of 'deny_access') if the 'create' action 
+      # was triggered after trying to access a restricted page when not signed-in.
+      redirect_back_or user
     end
   end
 

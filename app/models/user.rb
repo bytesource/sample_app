@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
                        :length       => { :maximum => 50 }
 
   validates :email,    :presence     => true,
-                       :format       => { :with => email_regex },
+                       :format       => { :with => email_regex, :message => "is not correct!" },
                        :uniqueness   => { :case_sensitive => false }
 
   # Automatically creates the virtual attribute 'password_confirmation'.
@@ -29,6 +29,10 @@ class User < ActiveRecord::Base
                        :length       => { :within => 6..40 }
 
   before_save :encrypt_password
+
+  def after_initialize
+    puts "You have initialized an object!"
+  end
 
   # Return true if the user's password matches the submitted password.
   def has_password?(submitted_password)
