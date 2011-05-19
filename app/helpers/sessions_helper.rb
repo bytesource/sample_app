@@ -1,5 +1,18 @@
 module SessionsHelper
 
+  # Moved here from the Users controller
+  def authenticate
+    deny_access unless signed_in?
+  end
+
+  def deny_access
+    store_location
+    flash[:notice] = "Please sign in to access this page."
+    redirect_to signin_path
+    # Short version: Setting flash[:notice] by passing an options hash to the redirect_to function.
+    # redirect_to signin_path, :notice => "Please sign in to access this page."
+  end
+  # ---------------------------------------
 
 
   def sign_in(user)
@@ -32,13 +45,6 @@ module SessionsHelper
   # ----------------------------------------
   # functions for befor_filter
 
-  def deny_access
-    store_location
-    flash[:notice] = "Please sign in to access this page."
-    redirect_to signin_path
-    # Short version: Setting flash[:notice] by passing an options hash to the redirect_to function.
-    # redirect_to signin_path, :notice => "Please sign in to access this page."
-  end
 
   def current_user?(user)
     user == current_user
@@ -46,7 +52,7 @@ module SessionsHelper
 
   # ------------------------------------------
   
-  # Needed in the Sessions controller create action to redirect after successful signin
+  # needed in the sessions controller 'create' action to redirect after successful signin
   def redirect_back_or(default)
     redirect_to(session[:return_to] || default)
     clear_return_to

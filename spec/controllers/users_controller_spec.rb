@@ -46,6 +46,16 @@ describe UsersController do
       response.should be_success
     end
 
+    it "should show the user's microposts" do
+      mp1 = Factory(:micropost, :user => @user, :content => "Micropost 1")
+      mp2 = Factory(:micropost, :user => @user, :content => "Micropost 2")
+
+      get :show, :id => @user
+      
+      response.should have_selector("span.content", :content => mp1.content)
+      response.should have_selector("span.content", :content => mp2.content)
+    end
+
     it "should find the right user" do
       get :show, :id => @user
       assigns(:user).should == @user
@@ -288,6 +298,35 @@ describe UsersController do
         response.should have_selector("a", :href    => "/users?page=2",
                                            :content => "Next")
       end
+
+      # sovonex ------------------------------
+      describe "as an admin user" do
+        
+        before(:each) do
+          # admin = Factory(:user, :email => "admin@example.com", :admin => true)
+          # test_sign_in(admin)
+          @user[:admin] = true
+        end
+
+        it "should show the 'delete' links" do
+          get :index
+          response.should have_selector("a", :content => "delete")
+        end
+      end
+
+      describe "as a non-admin user" do
+
+        it "should not show the 'delete' links" do
+          get :index
+          response.should_not have_selector("a", :content => "delete")
+        end
+      end
+
+
+      # sovonex end --------------------------------
+
+
+
     end
   end
 
@@ -312,11 +351,12 @@ describe UsersController do
       end
     end
 
+
     describe "as an admin user" do
       
       before(:each) do
-        admin = Factory(:user, :email => "admin@example.com", :admin => true)
-        test_sign_in(admin)
+        @admin = Factory(:user, :email => "admin@example.com", :admin => true)
+        test_sign_in(@admin)
       end
 
       it "should destroy the user" do
@@ -324,7 +364,15 @@ describe UsersController do
           delete :destroy, :id => @user
         end.should change(User, :count).by(-1)
       end
+# sovonex ------------------------------------------
 
+      it "should not destroy itself" do
+        lambda do
+          delete :destroy, :id => @admin
+        end.should_not change(User, :count).by(-1)
+      end
+
+# sovonex end -------------------------------------
       it "should redirect to the users page" do
         delete :destroy, :id => @user
         response.should redirect_to(users_path)

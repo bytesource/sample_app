@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   before_filter :correct_user, :only => [:edit, :update]
   before_filter :admin_user,   :only => [:destroy]
 
+  before_filter :logged_in_user, :only => [:new, :create]
+
 # -----------------------------------------------------------------
 
   def new
@@ -35,6 +37,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(:page => params[:page])
     @title = @user.name
   end
 
@@ -59,18 +62,20 @@ class UsersController < ApplicationController
   def destroy
     user = User.find(params[:id])
     name = user.name
-    user.destroy
-    flash[:success] = "Deleted #{name}"
-    redirect_to(users_path)
+    if(current_user?(user)) # only admin users can reach the 'destroy' action, so the current user must be an admin.
+      flash[:error] = "Admin users cannot delete themselves."
+      redirect_to(users_path)
+    else
+      user.destroy
+      flash[:success] = "Deleted #{name}"
+      redirect_to(users_path)
+    end
   end
 end
 
 # -----------------------------------------------------------------------
 
   private
-    def authenticate
-      deny_access unless signed_in?
-    end
 
     def correct_user
       @user = User.find(params[:id])
@@ -79,4 +84,8 @@ end
 
     def admin_user
       redirect_to(root_path) unless current_user.admin?
+    end
+
+    def logged_in_user
+      redirect_to(root_path) if signed_in?
     end
