@@ -1,0 +1,4 @@
+$("follow_form").update("<%= escape_javascript(render('users/follow')) %>")
+$("followers").update('<%= "#{@user.followers.count} followers" %>')
+$("flash").update("<%= escape_javascript(render('shared/flashi')) %>") 
+// Added <div id="flash"></div> to views/layouts/application.html.erb

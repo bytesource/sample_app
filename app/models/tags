@@ -1,0 +1,25 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Micropost	micropost.rb	/^class Micropost < ActiveRecord::Base$/;"	c
+Relationship	relationship.rb	/^class Relationship < ActiveRecord::Base$/;"	c
+User	user.rb	/^class User < ActiveRecord::Base$/;"	c
+after_initialize	user.rb	/^  def after_initialize$/;"	f	class:User
+authenticate	user.rb	/^  def self.authenticate(email, submitted_password) # Note: no 'do' here$/;"	F	class:User
+authenticate_with_salt	user.rb	/^  def self.authenticate_with_salt(id, cookie_salt)$/;"	F	class:User
+encrypt	user.rb	/^    def encrypt(string)$/;"	f	class:User
+encrypt_password	user.rb	/^    def encrypt_password$/;"	f	class:User
+feed	user.rb	/^  def feed$/;"	f	class:User
+follow!	user.rb	/^  def follow!(followed)$/;"	f	class:User
+following?	user.rb	/^  def following?(followed)$/;"	f	class:User
+from_users_followed_by	micropost.rb	/^def self.from_users_followed_by(user)$/;"	F
+has_password?	user.rb	/^  def has_password?(submitted_password)$/;"	f	class:User
+make_salt	user.rb	/^    def make_salt$/;"	f	class:User
+micropost.rb	micropost.rb	1;"	F
+relationship.rb	relationship.rb	1;"	F
+secure_hash	user.rb	/^    def secure_hash(string)$/;"	f	class:User
+unfollow!	user.rb	/^  def unfollow!(followed)$/;"	f	class:User
+user.rb	user.rb	1;"	F

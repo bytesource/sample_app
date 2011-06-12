@@ -23,7 +23,7 @@ describe UsersController do
       get :new
       response.should have_selector("input[name='user[email]'][type='text']")
     end
-    
+
     it "should have a password field" do
       get :new
       response.should have_selector("input[name='user[password]'][type='password']")
@@ -51,7 +51,7 @@ describe UsersController do
       mp2 = Factory(:micropost, :user => @user, :content => "Micropost 2")
 
       get :show, :id => @user
-      
+
       response.should have_selector("span.content", :content => mp1.content)
       response.should have_selector("span.content", :content => mp2.content)
     end
@@ -155,7 +155,7 @@ describe UsersController do
       get :edit, :id => @user
       gravatar_url = "http://gravatar.com/emails"
       response.should have_selector("a", :href => gravatar_url,
-                                         :content => "change")
+                                    :content => "change")
     end
   end
   describe "PUT 'update'" do
@@ -294,14 +294,14 @@ describe UsersController do
         response.should have_selector("div.pagination")
         response.should have_selector("span.disabled", :content => "Previous")
         response.should have_selector("a", :href    => "/users?page=2",
-                                           :content => "2")
+                                      :content => "2")
         response.should have_selector("a", :href    => "/users?page=2",
-                                           :content => "Next")
+                                      :content => "Next")
       end
 
       # sovonex ------------------------------
       describe "as an admin user" do
-        
+
         before(:each) do
           # admin = Factory(:user, :email => "admin@example.com", :admin => true)
           # test_sign_in(admin)
@@ -353,7 +353,7 @@ describe UsersController do
 
 
     describe "as an admin user" do
-      
+
       before(:each) do
         @admin = Factory(:user, :email => "admin@example.com", :admin => true)
         test_sign_in(@admin)
@@ -364,18 +364,57 @@ describe UsersController do
           delete :destroy, :id => @user
         end.should change(User, :count).by(-1)
       end
-# sovonex ------------------------------------------
+      # sovonex ------------------------------------------
 
       it "should not destroy itself" do
         lambda do
           delete :destroy, :id => @admin
         end.should_not change(User, :count).by(-1)
+        # Official solution:
+        # end.should_not change(User, :count)
       end
 
-# sovonex end -------------------------------------
+      # sovonex end -------------------------------------
       it "should redirect to the users page" do
         delete :destroy, :id => @user
         response.should redirect_to(users_path)
+      end
+    end
+  end
+
+  describe "follow pages" do
+
+    describe "when not signed in" do
+
+      it "should protect 'following'" do
+        get :following, :id => 1
+        response.should redirect_to(signin_path)
+      end
+
+      it "should protect 'followers'" do
+        get :followers, :id => 1
+        response.should redirect_to(signin_path)
+      end
+    end
+
+    describe "when signed in" do
+
+      before(:each) do
+        @user = test_sign_in(Factory(:user))
+        @other_user = Factory(:user, :email => Factory.next(:email))
+        @user.follow!(@other_user)
+      end
+
+      it "should show user following" do
+        get :following, :id => @user
+        response.should have_selector("a", :href => user_path(@other_user),
+                                           :content => @other_user.name)
+      end
+
+      it "should show user followers" do
+        get :followers, :id => @other_user
+        response.should have_selector("a", :href => user_path(@user),
+                                           :content => @user.name)
       end
     end
   end

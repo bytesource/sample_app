@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_filter :authenticate, :only => [:index, :edit, :update, :destroy]
-  before_filter :correct_user, :only => [:edit, :update]
-  before_filter :admin_user,   :only => [:destroy]
+  before_filter :authenticate, :except => [:show, :new, :create] 
+  before_filter :correct_user, :only   => [:edit, :update]
+  before_filter :admin_user,   :only   => [:destroy]
 
   before_filter :logged_in_user, :only => [:new, :create]
 
@@ -62,7 +62,8 @@ class UsersController < ApplicationController
   def destroy
     user = User.find(params[:id])
     name = user.name
-    if(current_user?(user)) # only admin users can reach the 'destroy' action, so the current user must be an admin.
+    # Only admin users can reach the 'destroy' action, so the current user must be an admin.
+    if(current_user?(user)) 
       flash[:error] = "Admin users cannot delete themselves."
       redirect_to(users_path)
     else
@@ -70,6 +71,22 @@ class UsersController < ApplicationController
       flash[:success] = "Deleted #{name}"
       redirect_to(users_path)
     end
+  end
+
+  def following
+    @title = "Following"
+    @user  = User.find(params[:id])
+    @users = @user.following.paginate(:page => params[:page])
+    # 'render' renders a view (= template), but does not change the URL the corresponding actions was called from.
+    # So here, after loading 'show_follow.html.erb', the brower address will still be /users/:id/following.
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user  = User.find(params[:id])
+    @users = @user.followers.paginate(:page => params[:page])
+    render :show_follow  # This is the same as "render 'show_follow'"
   end
 end
 

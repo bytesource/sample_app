@@ -20,6 +20,15 @@ class MicropostsController < ApplicationController
     redirect_back_or root_path
   end
 
+  # sovonex --------------------
+  # Using nested route 'users/1/microposts'
+  def index
+    @user = User.find(params[:user_id]) # Note the use of the foreign key :user_id instead of :id!
+    @microposts = @user.microposts.paginate(:page => params[:page])
+    @title = "Microposts of #{@user.name}"
+
+  end
+
   # ----------------------------
   def authorized_user
     @micropost = Micropost.find(params[:id])

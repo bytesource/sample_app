@@ -1,0 +1,34 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+20110404083832_create_users.rb	20110404083832_create_users.rb	1;"	F
+20110407081431_add_email_uniqueness_index.rb	20110407081431_add_email_uniqueness_index.rb	1;"	F
+20110408081912_add_password_to_users.rb	20110408081912_add_password_to_users.rb	1;"	F
+20110409064522_add_salt_to_users.rb	20110409064522_add_salt_to_users.rb	1;"	F
+20110512062355_add_admin_to_users.rb	20110512062355_add_admin_to_users.rb	1;"	F
+20110515061748_create_microposts.rb	20110515061748_create_microposts.rb	1;"	F
+20110531061852_create_relationships.rb	20110531061852_create_relationships.rb	1;"	F
+AddAdminToUsers	20110512062355_add_admin_to_users.rb	/^class AddAdminToUsers < ActiveRecord::Migration$/;"	c
+AddEmailUniquenessIndex	20110407081431_add_email_uniqueness_index.rb	/^class AddEmailUniquenessIndex < ActiveRecord::Migration$/;"	c
+AddPasswordToUsers	20110408081912_add_password_to_users.rb	/^class AddPasswordToUsers < ActiveRecord::Migration$/;"	c
+AddSaltToUsers	20110409064522_add_salt_to_users.rb	/^class AddSaltToUsers < ActiveRecord::Migration$/;"	c
+CreateMicroposts	20110515061748_create_microposts.rb	/^class CreateMicroposts < ActiveRecord::Migration$/;"	c
+CreateRelationships	20110531061852_create_relationships.rb	/^class CreateRelationships < ActiveRecord::Migration$/;"	c
+CreateUsers	20110404083832_create_users.rb	/^class CreateUsers < ActiveRecord::Migration$/;"	c
+down	20110404083832_create_users.rb	/^  def self.down$/;"	F	class:CreateUsers
+down	20110407081431_add_email_uniqueness_index.rb	/^  def self.down$/;"	F	class:AddEmailUniquenessIndex
+down	20110408081912_add_password_to_users.rb	/^  def self.down$/;"	F	class:AddPasswordToUsers
+down	20110409064522_add_salt_to_users.rb	/^  def self.down$/;"	F	class:AddSaltToUsers
+down	20110512062355_add_admin_to_users.rb	/^  def self.down$/;"	F	class:AddAdminToUsers
+down	20110515061748_create_microposts.rb	/^  def self.down$/;"	F	class:CreateMicroposts
+down	20110531061852_create_relationships.rb	/^  def self.down$/;"	F	class:CreateRelationships
+up	20110404083832_create_users.rb	/^  def self.up$/;"	F	class:CreateUsers
+up	20110407081431_add_email_uniqueness_index.rb	/^  def self.up$/;"	F	class:AddEmailUniquenessIndex
+up	20110408081912_add_password_to_users.rb	/^  def self.up$/;"	F	class:AddPasswordToUsers
+up	20110409064522_add_salt_to_users.rb	/^  def self.up$/;"	F	class:AddSaltToUsers
+up	20110512062355_add_admin_to_users.rb	/^  def self.up$/;"	F	class:AddAdminToUsers
+up	20110515061748_create_microposts.rb	/^  def self.up$/;"	F	class:CreateMicroposts
+up	20110531061852_create_relationships.rb	/^  def self.up$/;"	F	class:CreateRelationships

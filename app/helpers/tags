@@ -1,0 +1,36 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ApplicationHelper	application_helper.rb	/^module ApplicationHelper$/;"	m
+MicropostsHelper	microposts_helper.rb	/^module MicropostsHelper$/;"	m
+PagesHelper	pages_helper.rb	/^module PagesHelper$/;"	m
+RelationshipsHelper	relationships_helper.rb	/^module RelationshipsHelper$/;"	m
+SessionsHelper	sessions_helper.rb	/^module SessionsHelper$/;"	m
+UsersHelper	users_helper.rb	/^module UsersHelper$/;"	m
+application_helper.rb	application_helper.rb	1;"	F
+authenticate	sessions_helper.rb	/^  def authenticate$/;"	f	class:SessionsHelper
+clear_return_to	sessions_helper.rb	/^    def clear_return_to$/;"	f	class:SessionsHelper
+current_user	sessions_helper.rb	/^  def current_user$/;"	f	class:SessionsHelper
+current_user=	sessions_helper.rb	/^  def current_user=(user)$/;"	f	class:SessionsHelper
+current_user?	sessions_helper.rb	/^  def current_user?(user)$/;"	f	class:SessionsHelper
+deny_access	sessions_helper.rb	/^  def deny_access$/;"	f	class:SessionsHelper
+gravatar_for	users_helper.rb	/^  def gravatar_for(user, options = { :size => 70 })$/;"	f	class:UsersHelper
+logo	application_helper.rb	/^  def logo$/;"	f	class:ApplicationHelper
+microposts_helper.rb	microposts_helper.rb	1;"	F
+pages_helper.rb	pages_helper.rb	1;"	F
+redirect_back_or	sessions_helper.rb	/^  def redirect_back_or(default)$/;"	f	class:SessionsHelper
+relationships_helper.rb	relationships_helper.rb	1;"	F
+remember_token	sessions_helper.rb	/^    def remember_token$/;"	f	class:SessionsHelper
+sessions_helper.rb	sessions_helper.rb	1;"	F
+sign_in	sessions_helper.rb	/^  def sign_in(user)$/;"	f	class:SessionsHelper
+sign_out	sessions_helper.rb	/^  def sign_out$/;"	f	class:SessionsHelper
+signed_in?	sessions_helper.rb	/^  def signed_in?$/;"	f	class:SessionsHelper
+store_location	sessions_helper.rb	/^    def store_location$/;"	f	class:SessionsHelper
+title	application_helper.rb	/^  def title$/;"	f	class:ApplicationHelper
+user_from_remember_token	sessions_helper.rb	/^    def user_from_remember_token$/;"	f	class:SessionsHelper
+users_helper.rb	users_helper.rb	1;"	F
+wrap	microposts_helper.rb	/^  def wrap(content)$/;"	f	class:MicropostsHelper
+wrap_long_string	microposts_helper.rb	/^    def wrap_long_string(text, max_width = 30)$/;"	f	class:MicropostsHelper

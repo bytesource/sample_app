@@ -1,0 +1,21 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Application	application.rb	/^  class Application < Rails::Application$/;"	c	class:SampleApp
+SampleApp	application.rb	/^module SampleApp$/;"	m
+application.rb	application.rb	1;"	F
+backtrace_silencers.rb	initializers/backtrace_silencers.rb	1;"	F
+boot.rb	boot.rb	1;"	F
+development.rb	environments/development.rb	1;"	F
+environment.rb	environment.rb	1;"	F
+inflections.rb	initializers/inflections.rb	1;"	F
+mime_types.rb	initializers/mime_types.rb	1;"	F
+production.rb	environments/production.rb	1;"	F
+routes.rb	routes.rb	1;"	F
+secret_token.rb	initializers/secret_token.rb	1;"	F
+session_store.rb	initializers/session_store.rb	1;"	F
+test.rb	environments/test.rb	1;"	F
+test.rb	test.rb	1;"	F

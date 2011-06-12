@@ -1,20 +1,43 @@
 # == Schema Information
-# Schema version: 20110404083832
+# Schema version: 20110515061748
 #
 # Table name: users
 #
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  email      :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id                 :integer         not null, primary key
+#  name               :string(255)
+#  email              :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  encrypted_password :string(255)
+#  salt               :string(255)
+#  admin              :boolean
 #
 
 class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation
+  # 'has' meaning 'owns'. This definition becomes important when to decide
+  # on which model to add a 'has_one' association.
+  has_many :microposts,    :dependent   => :destroy
+  has_many :relationships, :foreign_key => "follower_id", # the default would look for a foreign key 'user_id'
+                           :dependent   => :destroy
+  has_many :following,     :through     => :relationships,
+                           :source      => :followed   # :source => name of foreign key without '_id'
+  # following = @user --> @other_user
+  # Observation: follower_id = @user, followed_id = @other_user(s)
 
-  has_many :microposts, :dependent => :destroy
+  # Without :source we would have to write:
+  # has_many :followeds, :through => :relationships
+
+  # Reverse relationship:
+  has_many :reverse_relationships, :foreign_key => "followed_id",
+                                   :class_name  => "Relationship",  # the default would look for a 'ReverseRelationship' class
+                                   :dependent   => :destroy
+  has_many :followers,             :through     => :reverse_relationships 
+  # Because we write :followers, Rails knows that the foreign key is the singualar name + '_id', which is 'follower_id'
+
+  # followers = @user <-- @other_user
+  # Observation: followed_id = @user, @follower_id = @other_user(s)
 
   # ---------------------------------------------------------------------
 
@@ -42,7 +65,7 @@ class User < ActiveRecord::Base
   # Micropost related
 
   def feed
-    Micropost.where("user_id = ?", id)
+    Micropost.from_users_followed_by(self)  # self = The instance calling this method (I think)
   end
 
 
@@ -65,6 +88,21 @@ class User < ActiveRecord::Base
   def self.authenticate_with_salt(id, cookie_salt)
     user = find_by_id(id)
     (user && user.salt == cookie_salt) ? user : nil
+  end
+
+  # Managing relationships
+
+  def following?(followed)
+    relationships.find_by_followed_id(followed)
+  end
+
+  def follow!(followed)
+    relationships.create!(:followed_id => followed.id)
+    # Equivalent: self.relationships.create!(...)
+  end
+
+  def unfollow!(followed)
+    relationships.find_by_followed_id(followed).destroy
   end
 
  

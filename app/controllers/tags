@@ -1,0 +1,43 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ApplicationController	application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+MicropostsController	microposts_controller.rb	/^class MicropostsController < ApplicationController$/;"	c
+PagesController	pages_controller.rb	/^class PagesController < ApplicationController$/;"	c
+RelationshipsController	relationships_controller.rb	/^class RelationshipsController < ApplicationController$/;"	c
+SessionsController	sessions_controller.rb	/^class SessionsController < ApplicationController$/;"	c
+UsersController	users_controller.rb	/^class UsersController < ApplicationController$/;"	c
+about	pages_controller.rb	/^  def about$/;"	f	class:PagesController
+admin_user	users_controller.rb	/^    def admin_user$/;"	f
+application_controller.rb	application_controller.rb	1;"	F
+authorized_user	microposts_controller.rb	/^  def authorized_user$/;"	f	class:MicropostsController
+contact	pages_controller.rb	/^  def contact$/;"	f	class:PagesController
+correct_user	users_controller.rb	/^    def correct_user$/;"	f
+create	microposts_controller.rb	/^  def create$/;"	f	class:MicropostsController
+create	relationships_controller.rb	/^  def create # \/relationships $/;"	f	class:RelationshipsController
+create	sessions_controller.rb	/^  def create$/;"	f	class:SessionsController
+create	users_controller.rb	/^  def create$/;"	f	class:UsersController
+destroy	microposts_controller.rb	/^  def destroy$/;"	f	class:MicropostsController
+destroy	relationships_controller.rb	/^  def destroy # relationships\/:id$/;"	f	class:RelationshipsController
+destroy	sessions_controller.rb	/^  def destroy$/;"	f	class:SessionsController
+destroy	users_controller.rb	/^  def destroy$/;"	f	class:UsersController
+edit	users_controller.rb	/^  def edit$/;"	f	class:UsersController
+followers	users_controller.rb	/^  def followers$/;"	f	class:UsersController
+following	users_controller.rb	/^  def following$/;"	f	class:UsersController
+help	pages_controller.rb	/^  def help$/;"	f	class:PagesController
+home	pages_controller.rb	/^  def home$/;"	f	class:PagesController
+index	microposts_controller.rb	/^  def index$/;"	f	class:MicropostsController
+index	users_controller.rb	/^  def index$/;"	f	class:UsersController
+logged_in_user	users_controller.rb	/^    def logged_in_user$/;"	f
+microposts_controller.rb	microposts_controller.rb	1;"	F
+new	sessions_controller.rb	/^  def new$/;"	f	class:SessionsController
+new	users_controller.rb	/^  def new$/;"	f	class:UsersController
+pages_controller.rb	pages_controller.rb	1;"	F
+relationships_controller.rb	relationships_controller.rb	1;"	F
+sessions_controller.rb	sessions_controller.rb	1;"	F
+show	users_controller.rb	/^  def show$/;"	f	class:UsersController
+update	users_controller.rb	/^  def update$/;"	f	class:UsersController
+users_controller.rb	users_controller.rb	1;"	F

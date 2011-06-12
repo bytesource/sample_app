@@ -43,7 +43,7 @@ module SessionsHelper
   end
 
   # ----------------------------------------
-  # functions for befor_filter
+  # functions for before_filter
 
 
   def current_user?(user)

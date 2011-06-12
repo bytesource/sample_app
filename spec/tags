@@ -1,0 +1,28 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+create.html.erb_spec.rb	views/relationships/create.html.erb_spec.rb	1;"	F
+destroy.html.erb_spec.rb	views/relationships/destroy.html.erb_spec.rb	1;"	F
+factories.rb	factories.rb	1;"	F
+friendly_forwardings_spec.rb	requests/friendly_forwardings_spec.rb	1;"	F
+integration_sign_in	spec_helper.rb	/^  def integration_sign_in(user)$/;"	f
+layout_links_spec.rb	requests/layout_links_spec.rb	1;"	F
+micropost_spec.rb	models/micropost_spec.rb	1;"	F
+microposts_controller_spec.rb	controllers/microposts_controller_spec.rb	1;"	F
+microposts_helper_spec.rb	helpers/microposts_helper_spec.rb	1;"	F
+microposts_spec.rb	requests/microposts_spec.rb	1;"	F
+new.html.erb_spec.rb	views/sessions/new.html.erb_spec.rb	1;"	F
+pages_controller_spec.rb	controllers/pages_controller_spec.rb	1;"	F
+relationship_spec.rb	models/relationship_spec.rb	1;"	F
+relationships_controller_spec.rb	controllers/relationships_controller_spec.rb	1;"	F
+relationships_helper_spec.rb	helpers/relationships_helper_spec.rb	1;"	F
+sessions_controller_spec.rb	controllers/sessions_controller_spec.rb	1;"	F
+sessions_helper_spec.rb	helpers/sessions_helper_spec.rb	1;"	F
+spec_helper.rb	spec_helper.rb	1;"	F
+test_sign_in	spec_helper.rb	/^  def test_sign_in(user)$/;"	f
+user_spec.rb	models/user_spec.rb	1;"	F
+users_controller_spec.rb	controllers/users_controller_spec.rb	1;"	F
+users_spec.rb	requests/users_spec.rb	1;"	F
