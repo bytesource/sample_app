@@ -260,8 +260,17 @@ describe User do
       @user.follow!(@followed)
       @followed.followers.should include(@user)
     end
+    # sovonex ------------------------------------------------
+    # 12.5 Exercises, question 1
+    it "should destroy associated relationships" do
+      @user.follow!(@followed)
+      @user.destroy
+      @followed.followers.should_not include(@user)
+    end
   end
 end
+
+
 
 
 

@@ -416,6 +416,14 @@ describe UsersController do
         response.should have_selector("a", :href => user_path(@user),
                                            :content => @user.name)
       end
+
+      it "should have the right follower/following counts" do
+        get :show, :id => @user
+        response.should have_selector("a", :href => following_user_path(@user),
+                                           :content => "1 following")
+        response.should have_selector("a", :href => followers_user_path(@user),
+                                           :content => "0 follower")
+      end
     end
   end
 end

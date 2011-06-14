@@ -63,4 +63,39 @@ describe "Users" do
       end
     end
   end
-end   
+
+
+  # sovonex ------------------------------------------
+  # 12.5 Exercises, question no. 6
+  describe "following users" do
+
+    describe "success" do
+
+      it "should follow a new user" do
+        lambda do
+          @user = Factory(:user)
+          integration_sign_in(@user)
+          @to_be_followed = Factory(:user, :email => Factory.next(:email))
+          visit user_path(@to_be_followed)
+          click_button
+          response.should have_selector("div.flash.success", 
+                                        :content => @to_be_followed.name)
+        end.should change(Relationship, :count).by(1)
+      end
+
+      it "should unfollow a user" do
+        @user = Factory(:user)
+        integration_sign_in(@user)
+        @to_be_followed = Factory(:user, :email => Factory.next(:email))
+        @user.follow!(@to_be_followed)
+        
+        lambda do
+          visit user_path(@to_be_followed)
+          click_button
+          response.should have_selector("div.flash.success", 
+                                        :content => @to_be_followed.name)
+        end.should change(Relationship, :count).by(-1)
+      end
+    end
+  end
+end

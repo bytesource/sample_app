@@ -4,8 +4,7 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-microposts_controller_spec.rb	microposts_controller_spec.rb	1;"	F
-pages_controller_spec.rb	pages_controller_spec.rb	1;"	F
-relationships_controller_spec.rb	relationships_controller_spec.rb	1;"	F
-sessions_controller_spec.rb	sessions_controller_spec.rb	1;"	F
-users_controller_spec.rb	users_controller_spec.rb	1;"	F
+friendly_forwardings_spec.rb	friendly_forwardings_spec.rb	1;"	F
+layout_links_spec.rb	layout_links_spec.rb	1;"	F
+microposts_spec.rb	microposts_spec.rb	1;"	F
+users_spec.rb	users_spec.rb	1;"	F

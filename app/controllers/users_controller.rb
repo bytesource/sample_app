@@ -74,23 +74,38 @@ class UsersController < ApplicationController
   end
 
   def following
-    @title = "Following"
-    @user  = User.find(params[:id])
-    @users = @user.following.paginate(:page => params[:page])
-    # 'render' renders a view (= template), but does not change the URL the corresponding actions was called from.
-    # So here, after loading 'show_follow.html.erb', the brower address will still be /users/:id/following.
-    render 'show_follow'
+    show_follow(:following)
   end
 
   def followers
-    @title = "Followers"
-    @user  = User.find(params[:id])
-    @users = @user.followers.paginate(:page => params[:page])
-    render :show_follow  # This is the same as "render 'show_follow'"
+    show_follow(:followers)
   end
-end
 
 # -----------------------------------------------------------------------
+
+  def show_follow(action)
+    @title = action.to_s.capitalize
+    @user  = User.find(params[:id])
+    @users = @user.send(action).paginate(:page => params[:page])
+    render :show_follow  # This is the same as "render 'show_follow'"
+    # 'render' renders a view (= template), but 
+    # does not change the URL the corresponding actions was called from.
+    # So here, after loading 'show_follow.html.erb', the brower address will still be /users/:id/following.
+  end
+
+  # send method:
+  # Invokes the method identified by symbol, passing it any arguments specified. 
+  # http://apidock.com/ruby/Object/send
+  # Example:
+  #
+  # class Klass
+  #   def hello(*args)
+  #     "Hello " + args.join(' ')
+  #   end
+  # end
+  # k = Klass.new
+  # k.send :hello, "gentle", "readers"   #=> "Hello gentle readers"
+
 
   private
 
@@ -106,3 +121,4 @@ end
     def logged_in_user
       redirect_to(root_path) if signed_in?
     end
+end

@@ -94,7 +94,7 @@ User	app/models/user.rb	/^class User < ActiveRecord::Base$/;"	c
 UsersController	app/controllers/users_controller.rb	/^class UsersController < ApplicationController$/;"	c
 UsersHelper	app/helpers/users_helper.rb	/^module UsersHelper$/;"	m
 about	app/controllers/pages_controller.rb	/^  def about$/;"	f	class:PagesController
-admin_user	app/controllers/users_controller.rb	/^    def admin_user$/;"	f
+admin_user	app/controllers/users_controller.rb	/^    def admin_user$/;"	f	class:UsersController
 after_initialize	app/models/user.rb	/^  def after_initialize$/;"	f	class:User
 application.js	public/javascripts/application.js	1;"	F
 application.rb	config/application.rb	1;"	F
@@ -111,7 +111,7 @@ clear_return_to	app/helpers/sessions_helper.rb	/^    def clear_return_to$/;"	f	c
 clone	public/javascripts/prototype.js	/^  function clone(object) {$/;"	f
 contact	app/controllers/pages_controller.rb	/^  def contact$/;"	f	class:PagesController
 controls.js	public/javascripts/controls.js	1;"	F
-correct_user	app/controllers/users_controller.rb	/^    def correct_user$/;"	f
+correct_user	app/controllers/users_controller.rb	/^    def correct_user$/;"	f	class:UsersController
 create	app/controllers/microposts_controller.rb	/^  def create$/;"	f	class:MicropostsController
 create	app/controllers/relationships_controller.rb	/^  def create # \/relationships $/;"	f	class:RelationshipsController
 create	app/controllers/sessions_controller.rb	/^  def create$/;"	f	class:SessionsController
@@ -146,11 +146,11 @@ extend	public/javascripts/prototype.js	/^  function extend(destination, source) 
 factories.rb	spec/factories.rb	1;"	F
 feed	app/models/user.rb	/^  def feed$/;"	f	class:User
 follow!	app/models/user.rb	/^  def follow!(followed)$/;"	f	class:User
+followed_by	app/models/micropost.rb	/^    def self.followed_by(user)$/;"	F	class:Micropost
 followers	app/controllers/users_controller.rb	/^  def followers$/;"	f	class:UsersController
 following	app/controllers/users_controller.rb	/^  def following$/;"	f	class:UsersController
 following?	app/models/user.rb	/^  def following?(followed)$/;"	f	class:User
 friendly_forwardings_spec.rb	spec/requests/friendly_forwardings_spec.rb	1;"	F
-from_users_followed_by	app/models/micropost.rb	/^def self.from_users_followed_by(user)$/;"	F
 function.handleMethod	public/javascripts/rails.js	/^  function handleMethod(element) {$/;"	f
 function.handleRemote	public/javascripts/rails.js	/^  function handleRemote(element) {$/;"	f
 gravatar_for	app/helpers/users_helper.rb	/^  def gravatar_for(user, options = { :size => 70 })$/;"	f	class:UsersHelper
@@ -173,7 +173,7 @@ isString	public/javascripts/prototype.js	/^  function isString(object) {$/;"	f
 isUndefined	public/javascripts/prototype.js	/^  function isUndefined(object) {$/;"	f
 keys	public/javascripts/prototype.js	/^  function keys(object) {$/;"	f
 layout_links_spec.rb	spec/requests/layout_links_spec.rb	1;"	F
-logged_in_user	app/controllers/users_controller.rb	/^    def logged_in_user$/;"	f
+logged_in_user	app/controllers/users_controller.rb	/^    def logged_in_user$/;"	f	class:UsersController
 logo	app/helpers/application_helper.rb	/^  def logo$/;"	f	class:ApplicationHelper
 make_salt	app/models/user.rb	/^    def make_salt$/;"	f	class:User
 masterDelay	public/javascripts/effects.js	/^    var masterDelay = options.delay;$/;"	v
@@ -227,6 +227,7 @@ sessions_controller_spec.rb	spec/controllers/sessions_controller_spec.rb	1;"	F
 sessions_helper.rb	app/helpers/sessions_helper.rb	1;"	F
 sessions_helper_spec.rb	spec/helpers/sessions_helper_spec.rb	1;"	F
 show	app/controllers/users_controller.rb	/^  def show$/;"	f	class:UsersController
+show_follow	app/controllers/users_controller.rb	/^  def show_follow(action)$/;"	f	class:UsersController
 sign_in	app/helpers/sessions_helper.rb	/^  def sign_in(user)$/;"	f	class:SessionsHelper
 sign_out	app/helpers/sessions_helper.rb	/^  def sign_out$/;"	f	class:SessionsHelper
 signed_in?	app/helpers/sessions_helper.rb	/^  def signed_in?$/;"	f	class:SessionsHelper

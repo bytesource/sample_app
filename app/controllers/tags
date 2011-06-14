@@ -11,11 +11,11 @@ RelationshipsController	relationships_controller.rb	/^class RelationshipsControl
 SessionsController	sessions_controller.rb	/^class SessionsController < ApplicationController$/;"	c
 UsersController	users_controller.rb	/^class UsersController < ApplicationController$/;"	c
 about	pages_controller.rb	/^  def about$/;"	f	class:PagesController
-admin_user	users_controller.rb	/^    def admin_user$/;"	f
+admin_user	users_controller.rb	/^    def admin_user$/;"	f	class:UsersController
 application_controller.rb	application_controller.rb	1;"	F
 authorized_user	microposts_controller.rb	/^  def authorized_user$/;"	f	class:MicropostsController
 contact	pages_controller.rb	/^  def contact$/;"	f	class:PagesController
-correct_user	users_controller.rb	/^    def correct_user$/;"	f
+correct_user	users_controller.rb	/^    def correct_user$/;"	f	class:UsersController
 create	microposts_controller.rb	/^  def create$/;"	f	class:MicropostsController
 create	relationships_controller.rb	/^  def create # \/relationships $/;"	f	class:RelationshipsController
 create	sessions_controller.rb	/^  def create$/;"	f	class:SessionsController
@@ -31,7 +31,7 @@ help	pages_controller.rb	/^  def help$/;"	f	class:PagesController
 home	pages_controller.rb	/^  def home$/;"	f	class:PagesController
 index	microposts_controller.rb	/^  def index$/;"	f	class:MicropostsController
 index	users_controller.rb	/^  def index$/;"	f	class:UsersController
-logged_in_user	users_controller.rb	/^    def logged_in_user$/;"	f
+logged_in_user	users_controller.rb	/^    def logged_in_user$/;"	f	class:UsersController
 microposts_controller.rb	microposts_controller.rb	1;"	F
 new	sessions_controller.rb	/^  def new$/;"	f	class:SessionsController
 new	users_controller.rb	/^  def new$/;"	f	class:UsersController
@@ -39,5 +39,6 @@ pages_controller.rb	pages_controller.rb	1;"	F
 relationships_controller.rb	relationships_controller.rb	1;"	F
 sessions_controller.rb	sessions_controller.rb	1;"	F
 show	users_controller.rb	/^  def show$/;"	f	class:UsersController
+show_follow	users_controller.rb	/^  def show_follow(action)$/;"	f	class:UsersController
 update	users_controller.rb	/^  def update$/;"	f	class:UsersController
 users_controller.rb	users_controller.rb	1;"	F

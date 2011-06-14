@@ -14,8 +14,8 @@ encrypt	user.rb	/^    def encrypt(string)$/;"	f	class:User
 encrypt_password	user.rb	/^    def encrypt_password$/;"	f	class:User
 feed	user.rb	/^  def feed$/;"	f	class:User
 follow!	user.rb	/^  def follow!(followed)$/;"	f	class:User
+followed_by	micropost.rb	/^    def self.followed_by(user)$/;"	F	class:Micropost
 following?	user.rb	/^  def following?(followed)$/;"	f	class:User
-from_users_followed_by	micropost.rb	/^def self.from_users_followed_by(user)$/;"	F
 has_password?	user.rb	/^  def has_password?(submitted_password)$/;"	f	class:User
 make_salt	user.rb	/^    def make_salt$/;"	f	class:User
 micropost.rb	micropost.rb	1;"	F
